@@ -2,12 +2,11 @@ export class ContextRequestEvent extends Event {
     constructor(context, callback, subscribe) {
         super('context-request', {
             bubbles: true,
-            cancelable: true,
             composed: true,
-        })
-        this.context = context
-        this.callback = callback
-        this.subscribe = subscribe
+        });
+        this.context = context;
+        this.callback = callback;
+        this.subscribe = subscribe;
     }
 }
 
@@ -50,7 +49,6 @@ export class ContextProvider extends EventTarget {
                 e.callback(this.value);
             }
             e.stopPropagation();
-            return true; // handled
         }
     }
 }
